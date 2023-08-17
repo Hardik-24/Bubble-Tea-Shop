@@ -22,6 +22,16 @@ class _ShopPageState extends State<ShopPage> {
                       'Bubble Tea Shop',
                       style: TextStyle(fontSize: 20),
                     ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: value.shop.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            title: Text(value.shop[index].name),
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),

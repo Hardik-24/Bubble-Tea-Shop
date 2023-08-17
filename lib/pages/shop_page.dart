@@ -1,6 +1,9 @@
+import 'package:bubble_tea/components/drink_tile.dart';
 import 'package:bubble_tea/models/shop.dart';
+import 'package:bubble_tea/pages/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:bubble_tea/models/drink.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -10,6 +13,14 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  void goToOrderPage(Drink drink) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OrderPage(),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<BubbleTeaShop>(
@@ -18,7 +29,7 @@ class _ShopPageState extends State<ShopPage> {
                 padding: const EdgeInsets.all(25.0),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Bubble Tea Shop',
                       style: TextStyle(fontSize: 20),
                     ),
@@ -26,8 +37,10 @@ class _ShopPageState extends State<ShopPage> {
                       child: ListView.builder(
                         itemCount: value.shop.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return ListTile(
-                            title: Text(value.shop[index].name),
+                          Drink individualDrink = value.shop[index];
+                          return DrinkTile(
+                            drink: individualDrink,
+                            onTap: () => goToOrderPage(individualDrink),
                           );
                         },
                       ),

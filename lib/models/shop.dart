@@ -1,9 +1,10 @@
 import 'package:bubble_tea/models/drink.dart';
 import 'package:flutter/material.dart';
 
-class BubbleTeaShop extends ChangeNotifier { //if something is a ChangeNotifier, you can subscribe to its changes
+class BubbleTeaShop extends ChangeNotifier {
+  //if something is a ChangeNotifier, you can subscribe to its changes
   final List<Drink> _shop = [
-    Drink(
+    const Drink(
         name: 'Pearl Milk Tea',
         price: "4.00",
         imagePath: 'lib/images/bubble-tea.png'),

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return ChangeNotifierProvider( //ChangeNotifierProvider is the widget that provides an instance of a ChangeNotifier to its descendants.
       create: (context) => BubbleTeaShop(), //keep watching this thing(in other words, you are subscribing to the changes of this thing
       builder: (context, child) => const MaterialApp( //whenever a change is notified in BubbleTeaShop(), build this app
         debugShowCheckedModeBanner: false,

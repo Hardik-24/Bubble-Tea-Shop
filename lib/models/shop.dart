@@ -1,7 +1,7 @@
 import 'package:bubble_tea/models/drink.dart';
 import 'package:flutter/material.dart';
 
-class BubbleTeaShop extends ChangeNotifier { //ChangeNotifier allows those watching it to subsribe to its changes
+class BubbleTeaShop extends ChangeNotifier { //if something is a ChangeNotifier, you can subscribe to its changes
   final List<Drink> _shop = [
     Drink(
         name: 'Pearl Milk Tea',

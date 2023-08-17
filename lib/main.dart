@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => BubbleTeaShop(),
-      builder: (context, child) => const MaterialApp(
+      create: (context) => BubbleTeaShop(), //keep watching this thing
+      builder: (context, child) => const MaterialApp( //whenever a change is observed in BubbleTeaShop(), build this app
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),

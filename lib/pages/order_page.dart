@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/drink.dart';
+import '../models/shop.dart';
 
 class OrderPage extends StatefulWidget {
   final Drink drink;
@@ -33,6 +35,17 @@ class _OrderPageState extends State<OrderPage> {
     setState(() {
       pearlValue = newValue;
     });
+  }
+
+  void addToCart() {
+    Provider.of<BubbleTeaShop>(context, listen: false).addToCart(widget.drink);
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text('Successfully added to cart'),
+      ),
+    );
   }
 
   @override
@@ -74,7 +87,7 @@ class _OrderPageState extends State<OrderPage> {
                         divisions: 4,
                         onChanged: (value) => customizeIce(value),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Row(
@@ -91,6 +104,14 @@ class _OrderPageState extends State<OrderPage> {
                     )
                   ],
                 ),
+                MaterialButton(
+                  onPressed: addToCart,
+                  color: Colors.brown,
+                  child: const Text(
+                    'Add to cart',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
               ],
             ),
           )

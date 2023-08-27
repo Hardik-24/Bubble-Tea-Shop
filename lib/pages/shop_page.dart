@@ -33,12 +33,16 @@ class _ShopPageState extends State<ShopPage> {
                       'Bubble Tea Shop',
                       style: TextStyle(fontSize: 20),
                     ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
                     Expanded(
                       child: ListView.builder(
                         itemCount: value.shop.length,
                         itemBuilder: (BuildContext context, int index) {
                           Drink individualDrink = value.shop[index];
                           return DrinkTile(
+                            trailing: const Icon(Icons.arrow_forward),
                             drink: individualDrink,
                             onTap: () => goToOrderPage(individualDrink),
                           );
